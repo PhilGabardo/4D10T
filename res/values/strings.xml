@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">4D10T</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="about_text">4D10T (4 Digits 10 Tries) is a puzzle where you are given 10 tries to guess a 4 digit number. After each guess, you are given the following hints:\n -Number of correctly guessed digits \n -Number of correctly placed digits \n\n For example, if the digit you are trying to guess is 1034, and your guess is 9130, then:\n -Number of correctly guessed digits = 3 (because 1, 0, and 3 are in both numbers)\n -Number of correctly placed digits = 1 (because 3 is the third digit to the right in both numbers)</string>
+
+</resources>
