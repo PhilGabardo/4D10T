@@ -2,7 +2,7 @@ package philgabardo.fourdigits10tries;
 
 import java.util.Random;
 
-/** Generate 10 random integers in the range 0..99. */
+/** Generate 4 random integers in the range 0..9. */
 public final class RandomInteger {
   
   int[] generate(){
