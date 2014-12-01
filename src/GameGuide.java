@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 public class GameGuide extends Activity {
 	
-	
+   //Simple activity to show game guide
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
