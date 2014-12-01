@@ -20,17 +20,6 @@ import android.widget.Toast;
 
 public class Winner extends Activity {
 	
-	private static int digit1;
-	private static int digit2;
-	private static int digit3;
-	private static int digit4;
-	private static int guessesLeft;
-	private static int correctDigits;
-	private static int correctPlaces;
-	public NumberPicker D1;
-	private static NumberPicker D2;
-	private static NumberPicker D3;
-	private static NumberPicker D4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +32,8 @@ public class Winner extends Activity {
 	    new Handler().postDelayed(new Runnable() {
 	    	 
             /*
-* Showing loser splash screen with a timer.
-*/
+		* Showing loser splash screen with a timer.
+	    */
  
             @Override
             public void run() {
