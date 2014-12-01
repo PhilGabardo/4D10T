@@ -16,6 +16,8 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button gameGuide = (Button) findViewById(R.id.GameGuide);
+        
+        
         gameGuide.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
