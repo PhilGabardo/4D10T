@@ -35,6 +35,8 @@ public class Game extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game2);
         guessesLeft = 10;
+        
+        //Initialize number pickers
         NumberPicker D1 = (NumberPicker) findViewById(R.id.D1);
         D1.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
         D1.setMaxValue(9);
@@ -51,6 +53,8 @@ public class Game extends Activity {
         D4.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
         D4.setMaxValue(9);
         D4.setMinValue(0);
+        
+        //Initialize labels
         final TextView guessesLeftText = (TextView) findViewById(R.id.GuessesLeft);
         guessesLeftText.setText("Number of Guesses Left: 10");
         final TextView correctDigitsText = (TextView) findViewById(R.id.CorrectDigits);
@@ -59,17 +63,22 @@ public class Game extends Activity {
         correctPlacesText.setText("Number of Correctly Placed Digits: ");
         final TextView pastGuessesText = (TextView) findViewById(R.id.PastGuesses);
         pastGuessesText.setText("Previous Guess:");
-
+	
+	//Generate digits to guess
         RandomInteger r = new RandomInteger();
         final int[]digits = r.generate();
         digit1 = digits[0];
         digit2 = digits[1];
         digit3 = digits[2];
         digit4 = digits[3];
+        
+        //Guess button disposition
         Button guess = (Button) findViewById(R.id.Guess);
         guess.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+            	
+            //Retrieve digits from UI
             int[] localDigits = new int[]{digits[0],digits[1],digits[2],digits[3]};
             guessesLeft--;
             NumberPicker D1 = (NumberPicker) findViewById(R.id.D1);
@@ -83,6 +92,8 @@ public class Game extends Activity {
             
             correctDigits = 0;
             correctPlaces = 0;
+            
+            //Determine correctly placed digits
             if(guess1==digit1){
             	correctPlaces++;
             }
@@ -95,6 +106,8 @@ public class Game extends Activity {
             if(guess4==digit4){
             	correctPlaces++;
             }
+            
+            //Determine correct digits (placement disregarded)
             if(guess1==localDigits[0]||guess1==localDigits[1]||guess1==localDigits[2]||guess1==localDigits[3]){
             	correctDigits++;
             	for(int i=0; i<4; i++){
@@ -140,16 +153,21 @@ public class Game extends Activity {
             	
             }
             
+            //Updated labels
             String pastGuess=""+guess1+""+""+guess2+""+""+guess3+""+""+guess4+"";
             guessesLeftText.setText("Number of Guesses Left: " + guessesLeft);
             correctDigitsText.setText("Number of Correct Digits: "+ correctDigits);
             correctPlacesText.setText("Number of Correctly Placed Digits: "+ correctPlaces);
             pastGuessesText.setText("Previous Guess: " + pastGuess);
+            
+            //Player lost
             if(guessesLeft==0 && correctPlaces!=4){
             	Intent i = new Intent(getApplicationContext(), Loser.class);
 				startActivity(i);  
             		
             }
+            
+            //Player won
             if(correctPlaces==4){
             	    Intent i = new Intent(getApplicationContext(), Winner.class);
             	    i.putExtra("WinningNumber", ""+digit1+""+digit2+""+digit3+""+digit4+"");
