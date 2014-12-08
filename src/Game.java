@@ -25,7 +25,7 @@ public class Game extends Activity {
 	private static int guessesLeft;
 	private static int correctDigits;
 	private static int correctPlaces;
-	public NumberPicker D1;
+	private static NumberPicker D1;
 	private static NumberPicker D2;
 	private static NumberPicker D3;
 	private static NumberPicker D4;
